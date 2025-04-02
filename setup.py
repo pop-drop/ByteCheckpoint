@@ -60,18 +60,27 @@ with open("requirements.txt") as f_req:
 # Append the required packages to the list.
 REQUIRES += required
 
+# Add description.
+from pathlib import Path
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
+
 setup(
     name=NAME,
     version=VERSION,
-    description="An Unified LFM Checkpointing Library",
+    description="ByteCheckpoint: An Unified Checkpointing Library for LFMs",
     author="ByteDance-Seed-MLSys",
     license="Apache 2.0",
     author_email="wanborui@connect.hku.hk, mingjihan@bytedance.com",
-    url="https://github.com/volcengine/ByteCheckpoint",
+    url="https://github.com/ByteDance-Seed/ByteCheckpoint.git",
     packages=["bytecheckpoint"],
     package_data={
         "bytecheckpoint": package_files(["bytecheckpoint"]),
     },
     install_requires=REQUIRES,
     python_requires=">=3.8",
+    include_package_data=True,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
 )
