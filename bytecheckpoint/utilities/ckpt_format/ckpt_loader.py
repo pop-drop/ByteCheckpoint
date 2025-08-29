@@ -132,7 +132,7 @@ class CKPTLoader:
                         # Byte object.
                         if cur_metadata is None:
                             cur_data_bytes = io.BytesIO(cur_data_raw)
-                            cur_data = torch.load(cur_data_bytes)
+                            cur_data = torch.load(cur_data_bytes, weights_only=False)
                         # Tensor object.
                         else:
                             cur_data = _deserialize_tensor(cur_metadata, cur_data_raw)

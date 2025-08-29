@@ -85,8 +85,8 @@ class TestDDPSaveLoad2(TestFSDPBase):
                 x = x.cpu()
             return x
 
-        model_state_dict_before_save = torch.load("./model_state_before_save.pt")
-        optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt")
+        model_state_dict_before_save = torch.load("./model_state_before_save.pt", weights_only=False)
+        optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt", weights_only=False)
         model_state_dict_after_load = model.state_dict()
         optim_state_dict_after_load = optimizer.state_dict()
         dict_list_map_inplace(apply, model_state_dict_after_load)

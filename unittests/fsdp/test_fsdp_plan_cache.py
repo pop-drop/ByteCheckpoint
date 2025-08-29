@@ -89,8 +89,8 @@ class TestFSDPPlanCache(TestFSDPBase):
             optim_state_dict_after_load = FSDP.optim_state_dict(model, optimizer)
         # Verify load and save
         if rank == 0:
-            model_state_dict_before_save = torch.load("./model_state_before_save.pt")
-            optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt")
+            model_state_dict_before_save = torch.load("./model_state_before_save.pt", weights_only=False)
+            optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt", weights_only=False)
             model_diffs = diff(model_state_dict_before_save, model_state_dict_after_load)
             optim_diffs = diff(optim_state_dict_before_save, optim_state_dict_after_load)
             assert not any(map(bool, model_diffs)), model_diffs

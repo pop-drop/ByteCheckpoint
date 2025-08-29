@@ -116,8 +116,8 @@ class TestFSDPSaveLoad2(TestFSDPBase):
             model_state_dict_after_load = model.state_dict()
             optim_state_dict_after_load = FSDP.optim_state_dict(model, optimizer)
         if rank == 0:
-            model_state_dict_before_save = torch.load("./model_state_before_save.pt")
-            optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt")
+            model_state_dict_before_save = torch.load("./model_state_before_save.pt", weights_only=False)
+            optim_state_dict_before_save = torch.load("./optim_state_dict_before_save.pt", weights_only=False)
             # for k ,v in model_state_dict_before_save.items():
             #     print("model k1:",k,"v1:",v)
             # for k ,v in optim_state_dict_before_save.items():

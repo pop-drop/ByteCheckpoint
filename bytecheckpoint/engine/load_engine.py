@@ -229,7 +229,7 @@ class LoadEngine(BaseLoadEngine):
                 with open(file_path, "rb") as f:
                     return pickle.load(f)
             else:
-                return torch.load(file_path)
+                return torch.load(file_path, weights_only=False)
 
         load_futures = []
         for file_path in file_paths:

@@ -132,7 +132,7 @@ class TestFSDPLoadSaveOnlyModel(TestFSDPBase):
             auto_wrap_policy=ModuleWrapPolicy([Layer]),
         )
         optimizer = torch.optim.Adam(model.parameters(), lr=0.1, weight_decay=1e-2)
-        # torch.__version__ = "2.5.0"
+        # torch.__version__ = "2.6.0"
         optimizer.zero_grad()
         # do one step
         for i in range(STEPS):

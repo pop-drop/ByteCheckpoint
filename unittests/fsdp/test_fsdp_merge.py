@@ -82,8 +82,8 @@ class TestFSDPSaveLoad(TestFSDPBase):
             bytecheckpoint_ckpt_to_pytorch_ckpt(CKPT_DIR_DISTCP, CKPT_DIR_MERGE, framework="fsdp")
             merged_model_path = f"{CKPT_DIR_MERGE}/model.pt"
             merged_optimizer_path = f"{CKPT_DIR_MERGE}/optimizer.pt"
-            model_merged = torch.load(merged_model_path)
-            optimizer_merged = torch.load(merged_optimizer_path)
+            model_merged = torch.load(merged_model_path, weights_only=False)
+            optimizer_merged = torch.load(merged_optimizer_path, weights_only=False)
 
             return_dict = bytecheckpoint_ckpt_to_pytorch_ckpt(
                 CKPT_DIR_DISTCP,

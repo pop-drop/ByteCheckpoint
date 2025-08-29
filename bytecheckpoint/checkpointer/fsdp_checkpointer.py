@@ -102,8 +102,8 @@ class FSDPCheckpointer(BaseCheckpointer):
             logger.warning("Unsupported role %s, will use default role instead", role)
             role = SUPPORTED_ROLE_SUFFIX_TYPES[DEFAULT_STR]
         # Check version.
-        assert "2.1.0" <= torch.__version__.strip() and torch.__version__.strip() < "2.6.0", (
-            "ByteCheckpoint now only support torch version from 2.1 to 2.5"
+        assert "2.1.0" <= torch.__version__.strip() and torch.__version__.strip() < "2.7.0", (
+            "ByteCheckpoint now only support torch version from 2.1 to 2.6"
         )
         # Check supported components.
         cls.check_supported_components(checkpoint_state, FSDP_SUPPORTED_TYPES)
@@ -229,8 +229,8 @@ class FSDPCheckpointer(BaseCheckpointer):
         if load_decomposed_model_optimizer:
             has_tied_weights = init_decompose_mode_fsdp(checkpoint_state)
         # Check version.
-        assert "2.1.0" <= torch.__version__.strip() and torch.__version__.strip() < "2.6.0", (
-            "ByteCheckpoint now only support torch version from 2.1 to 2.5"
+        assert "2.1.0" <= torch.__version__.strip() and torch.__version__.strip() < "2.7.0", (
+            "ByteCheckpoint now only support torch version from 2.1 to 2.6"
         )
         # Check role.
         if role and role not in SUPPORTED_ROLE_SUFFIX_TYPES:

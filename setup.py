@@ -10,7 +10,7 @@ NAME = "bytecheckpoint"
 VERSION = "0.0.2"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REQUIRES = [
-    "torch>=2.1.0,<=2.5.0",
+    "torch>=2.1.0,<=2.6.0",
     "mmh3>=4.1.0,<=4.2.0",
     "universal_pathlib>=0.2.2,<=1.0.0",
     "cachetools>=5.4.0,<=10.0.0",
